@@ -1,45 +1,70 @@
-let getComputerChoice=Math.floor(Math.random()*3+1)
-let playerChoice=prompt("Enter Rock, Paper, or Scissors")
+const choices = ['rock','paper','scissors'];
+const winners = [];
 
-function playRound(playerSelection, computerSelection) {
-function playerSelection() {
-return playerChoice.charAt(0).toUpperCase() + playerChoice.slice(1).toLowerCase
+function game() {
+    for (i=1; i<=5; i++)
+    playRound(i);
+    findFinalResults();
 }
 
-function computerSelection() {
-if (getComputerChoice == 1) {
-    let computerSelection="Rock";
-} else if (getComputerChoice == 2) {
-    let computerSelection="Paper";
-} else if (getComputerChoice == 3) {
-    let computerSelection="Scissors";
+function playRound() {
+    const playerSelection = playerChoice();
+    const computerSelection = computerChoice();
+    const winner = findWinner(playerSelection,computerSelection);
+    winners.push(winner);
+    console.log('player:',playerSelection);
+    console.log('computer:',computerSelection);
+    console.log('result:',winner);
+    console.log('------------------------')
 }
+
+function computerChoice() {
+        return choices[Math.floor(Math.random()*choices.length)]
+    }
+
+function playerChoice() {
+    let input = prompt("Rock, Paper, or Scissors?");
+    while (input == null) {
+        input = prompt("You must choose Rock, Paper, or Scissors");
+    }
+    input = input.toLowerCase();
+    let check = validateInput(input);
+        while (check == false) {
+            input = prompt('You can only choose Rock, Paper, or Scissors');
+        while (input == null) {
+            input = prompt("You must choose Rock, Paper, or Scissors")
+        }
+        input = input.toLowerCase();
+        check = validateInput(input);
+        }
+        return input;
 }
 
-if (playerSelection=="Rock") {
-} if (computerSelection=="Rock") {
-    return displayResult("Rock ties Rock! You Draw!");
-   } else if (computerSelection=="Paper") {
-    return displayResult("Paper beats Rock! You Lose!");
-   } else if (computerSelection=="Scissors") {
-    return displayResult("Rock beats Scissors! You Win!");
-   }
+function validateInput(choice) {
+    if (choices.includes(choice)) {
+        return true;
+    } else {
+        return false;
+    }
+}
 
-if (playerSelection=="Paper") {
-} if (computerSelection=="Paper") {
-    return displayResult("Paper ties Paper! You Draw!");
-   } else if (computerSelection=="Scissors") {
-    return displayResult("Scissors beats Paper! You Lose!");
-   } else if (computerSelection=="Rock") {
-    return displayResult("Paper beats Rock! You Win!");
-   }
-
-   if (playerSelection=="Scissors") {
-} if (computerSelection=="Scissors") {
-    return displayResult("Scissors ties Scissors! You Draw!");
-   } else if (computerSelection=="Rock") {
-    return displayResult("Rock beats Scissors! You Lose!");
-   } else if (computerSelection=="Paper") {
-    return displayResult("Scissors beats Paper! You Win!");
-   }
+function findWinner(choiceP,choiceC) {
+    if (choiceP == choiceC) {
+        return 'Tie';
+    } else if ((choiceP == 'rock' && choiceC == 'paper') ||
+        (choiceP == 'paper' && choiceC == 'scissors') ||
+        (choiceP == 'scissors' && choiceC == 'rock')) {
+        return 'Computer';
+    } else {
+        return 'Player';
+    }
+}
+function findFinalResults() {
+    let playerWins = winners.filter((item) => item == 'Player').length;
+    let computerWins = winners.filter((item) => item == 'Computer').length;
+    let ties = winners.filter((item) => item == 'Tie').length;
+    console.log('results:');
+    console.log('player Wins:', playerWins);
+    console.log('Computer Wins:', computerWins);
+    console.log('Ties:', ties);
 }
