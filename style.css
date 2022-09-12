@@ -54,13 +54,21 @@ button {
 .displays {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     margin-bottom: 37.5vh;
 }
 
-.computerdisplay, .playerdisplay {
+.computerbox, .playerbox {
+    display: flex;
+    width: 25vh;
+    height: 25vh;
     margin: 0 25vh 0 25vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.computerdisplay, .playerdisplay {
     font-size: 48px;
 }
 
