@@ -1,0 +1,78 @@
+body {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.heading {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    flex-grow: 1;
+}
+
+h1 {
+    start: top;
+    margin:0;
+    padding:0;
+    font-size: 64px;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+    font-style: italic;
+    font-size: 24px;
+}
+
+.game {
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0;
+    flex-grow: 2;
+}
+
+button {
+    align-items: center;
+    padding: 24px;
+    border-radius: 8px;
+    border-width: 8px;
+    background-color: forestgreen;
+    color: white;
+    font-size: 18px;
+    margin-top: 12.5vh;
+    border-style: solid;
+    border-color: forestgreen;
+}
+
+.displays {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 37.5vh;
+}
+
+.computerdisplay, .playerdisplay {
+    margin: 0 25vh 0 25vh;
+    font-size: 48px;
+}
+
+.computerdisplay {
+    font-family: monospace;
+}
+
+.playerdisplay {
+    font-family: cursive;
+}
+
+.versusdisplay {
+    font-family: fantasy;
+    font-size: 120px;
+}

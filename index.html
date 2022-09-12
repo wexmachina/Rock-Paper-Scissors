@@ -2,7 +2,20 @@
 <head>
     <meta lang="UTF-8">
     <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <script src="game.js"></script>
+    <div class="heading">
+        <h1>Rock, Paper, Scissors</h1>
+        <p>Can you beat the Computer at Rock, Paper, Scissors?</p>
+    </div>
+    <div class ="game">
+        <button onclick="game()">Start Game</button>
+        <div class="displays">
+            <div class="computerdisplay">Computer</div>
+            <div class="versusdisplay">Vs</div>
+            <div class="playerdisplay">Player</div>
+        </div>
+    </div>
 </body>
+<script src="game.js"></script>
